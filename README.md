@@ -5,11 +5,11 @@
 Architecting high-performance concurrent systems in Rust & Python.  
 Bridging the gap between robust backends and reactive frontends.
 
-I am a Senior Software Engineer with over **25 years of experience** building scalable infrastructure and application systems. My technical philosophy centres on **Hybrid Architecture**: leveraging Rust's memory safety and raw concurrency for core backend services, while utilising the ecosystem richness of **Python** and **Flutter** for rapid application logic and cross-platform interfaces.
+I am a Senior Software Engineer with over **25 years of experience** building scalable infrastructure and application systems. My technical philosophy centers on **Hybrid Architecture**: leveraging Rust's memory safety and raw concurrency for core backend services, while utilizing the ecosystem richness of **Python** and **Flutter** for rapid application logic and cross-platform interfaces.
 
-My work focuses on eliminating architectural entropy through standardisation (dev\_skel) and creating novel bridges between disconnected ecosystems (flet-django). I specialise in **Cloud-Native** deployments, orchestrating microservices on **Kubernetes** with a focus on observability and resilience.
+My work focuses on eliminating architectural entropy through standardization (**dev_skel**) and creating novel bridges between disconnected ecosystems (**flet-django**). I specialize in **Cloud-Native** deployments, orchestrating microservices on **Kubernetes** with a focus on observability and resilience.
 
-## ---
+---
 
 **🛠 Technology Ecosystem**
 
@@ -21,80 +21,74 @@ My work focuses on eliminating architectural entropy through standardisation (de
 | **Infrastructure** | **Kubernetes**, Docker, Helm, Terraform | Infrastructure as Code (IaC), GitOps, CI/CD pipeline automation. |
 | **Data & Storage** | PostgreSQL (**PostGIS**), Redis | Spatial indexing, Real-time session state management. |
 
-## ---
+---
 
 **🚀 Engineering Portfolio**
 
-### **\[dev\_skel\] Microservice Scaffolding Engine**
+### **[DAS-SAR] Distributed Aerial Search and Rescue Swarm**
+*Role: Lead Developer* | [**GitHub**](https://github.com/berecik/virtual_drone_crowd)
 
-*Role: Architect & Maintainer* | *Status: Internal / Tooling*
+A paradigm-shifting **Fail-Operational Distributed Lift System (DLS)** designed for heavy-lift aerial evacuation. Instead of a single massive aircraft, it utilizes a swarm of autonomous drones tethered to a common payload, enabling extraction from environments inaccessible to conventional helicopters.
 
-**dev\_skel** is a comprehensive scaffolding and orchestration engine designed to standardise the lifecycle of modern microservices. Born from the necessity to maintain architectural consistency across polyglot environments (Rust/Python), it serves as the foundational "DNA" for high-performance applications. It represents a shift from manual configuration to "Platform as Code."
+*   **Hybrid Stack:** Orchestrates real-time swarm logic using **Rust** for safety-critical controllers and **Python** for high-level mission planning.
+*   **Decentralized Communication:** Leverages **Zenoh** and **ROS 2 (Humble/Jazzy)** for low-latency, resilient data distribution between swarm nodes.
+*   **Fail-Operational Design:** Implements redundant lift algorithms where the swarm maintains stability and payload altitude even upon individual drone failure.
 
-**Core Architectural Features:**
+### **[claude_on_django] LLM Orchestration Framework**
+*Role: Architect* | [**Internal / Early Access**]
 
-* **Polyglot Bootstrapping:** Instantly scaffolds production-ready directory structures for **FastAPI** (Python) and **Actix** (Rust) services. It enforces **Domain-Driven Design (DDD)** principles, separating domain logic from transport layers (HTTP/gRPC) from day one.  
-* **Container Optimisation:** Implements advanced **Docker** patterns, including multi-stage builds that utilise distroless images for Rust (resulting in \<50MB artefacts) and optimised slim images for Python, minimising the security attack surface.  
-* **Kubernetes-Native Config:** Automatically generates production-grade **Helm** charts and raw manifests, including pre-configured Readiness/Liveness probes, **HPA** (Horizontal Pod Autoscaling) rules, and Ingress definitions tailored for NGINX controllers.  
-* **CI/CD Pipeline Generation:** Injects battle-tested workflow configurations (GitHub Actions/GitLab CI) covering:  
-  * **Linting/Formatting:** clippy, rustfmt, black, isort.  
-  * **Security Scanning:** Container vulnerability scans and dependency auditing (cargo audit, bandit).  
-  * **Automated Deployment:** GitOps-ready manifest updates.
+A specialized integration layer for **Anthropic's Claude** within the **Django** ecosystem. This project focuses on moving beyond simple chatbot interfaces to deep, context-aware LLM orchestration inside mature enterprise backends.
 
-### ---
+*   **Semantic Model Integration:** Maps Django ORM models to Claude's context window, enabling the LLM to reason over application data while respecting database constraints and permissions.
+*   **Asynchronous Processing:** Utilizes **Celery** to handle long-running LLM generation tasks without blocking the main web worker, maintaining application responsiveness.
+*   **Structured Output Parsing:** Enforces strict JSON schemas on Claude's responses to ensure seamless integration with downstream Python logic and Flet-based frontends.
 
-**\[flet-django\] The Django-Flutter Bridge**
+### **[flutterkvm] Flutter PiKVM Client**
+*Role: Creator* | [**GitHub**](https://github.com/berecik/flutterkvm)
 
+A specialized mobile and desktop client for **PiKVM**, built with **Flutter**. It allows users to manage and control remote servers via PiKVM with a native, high-performance interface.
+
+*   **Cross-Platform:** Provides a consistent experience across Android, iOS, and Desktop.
+*   **Low Latency:** Optimized for remote control scenarios where responsiveness is critical.
+
+### **[CityExplorer] AI-Driven Geospatial Platform**
+*Role: Full Stack Architect* | [**Live App**](https://cityexplorer.app)
+
+A production mobile application that acts as an intelligent personal tour guide. The system solves the challenge of delivering real-time, location-aware content by combining high-performance geospatial querying with Generative AI.
+
+*   **Rust Actix Backend:** Leverages the **Actor Model** to handle thousands of concurrent WebSocket connections with sub-millisecond latency.
+*   **Geospatial Intelligence:** Utilizes **PostGIS** for advanced spatial indexing (R-Tree), enabling efficient "K-Nearest Neighbors" (KNN) queries.
+*   **Generative AI Pipeline:** Orchestrates an asynchronous job queue feeding POI data into LLMs to generate unique, context-aware audio stories.
+
+### **[dev_skel] Microservice Scaffolding Engine**
+*Role: Architect & Maintainer* | [**GitHub**](https://github.com/berecik/dev_skel)
+
+**dev_skel** is a comprehensive scaffolding and orchestration engine designed to standardize the lifecycle of modern microservices. Born from the necessity to maintain architectural consistency across polyglot environments (Rust/Python), it serves as the foundational "DNA" for high-performance applications.
+
+*   **Polyglot Bootstrapping:** Instantly scaffolds production-ready directory structures for **FastAPI** (Python) and **Actix** (Rust) services, enforcing **Domain-Driven Design (DDD)** principles.
+*   **Container Optimization:** Implements advanced **Docker** patterns, including multi-stage builds and distroless images for Rust (<50MB artifacts).
+*   **Kubernetes-Native Config:** Automatically generates production-grade **Helm** charts, including pre-configured Readiness/Liveness probes, HPA rules, and Ingress definitions.
+
+### **[flet-django] The Django-Flutter Bridge**
 *Role: Creator & Lead Maintainer* | [**PyPI**](https://pypi.org/project/flet-django/) | [**GitHub**](https://github.com/Marysia-Software-Limited/flet-django)
 
 An innovative open-source framework that bridges the gap between **Django's** mature backend ecosystem and **Flutter's** reactive UI capabilities (via Flet). This project solves the "disconnected frontend" problem, allowing Python developers to build rich, native-feeling desktop and mobile apps without writing a single line of JavaScript or Dart.
 
-**Technical Deep Dive:**
+*   **Architecture:** Runs the Flet engine directly within the Django process. Utilizes custom **Middleware** to upgrade HTTP requests to **WebSockets**, enabling real-time, bi-directional communication.
+*   **The GenericApp Pattern:** Implements abstract base classes (`GenericApp`, `GenericView`) that automate the binding of Django Models to Flutter UI controls.
+*   **Zero-Boilerplate CRUD:** Features introspection capabilities that analyze Django Models to auto-generate data tables, forms, and list views.
 
-* **Architecture:** The framework runs the Flet engine directly within the Django process. It utilises a custom **Middleware** (UrlsMiddleware) to intercept HTTP requests and upgrade them to **WebSocket** connections, enabling real-time, bi-directional communication between the Python backend and the Flutter UI shell.  
-* **The GenericApp Pattern:** Implements a set of abstract base classes (GenericApp, GenericView) that automate the binding of Django Models to Flutter UI controls.  
-* **Zero-Boilerplate CRUD:** Features introspection capabilities that analyse Django Models to auto-generate data tables, forms, and list views, reducing the development time for internal tools by an order of magnitude.  
-* **Roadmap:** Includes plans for AuthMiddleware to map Django's permission system to UI visibility states seamlessly.
+---
 
-### ---
+**📂 Other Contributions**
 
-**\[CityExplorer\] AI-Driven Geospatial Platform**
+*   **[actix-generic-crud](https://github.com/berecik/actix-generic-crud):** A library demonstrating advanced **Rust** capabilities (Traits/Generics) to solve the "boilerplate problem" in web frameworks.
+*   **[fastapi-k8s-microservice-template](https://github.com/berecik/fastapi-k8s-microservice-template):** A reference architecture for deploying Python microservices at scale, serving as the public proof-of-concept for the **dev_skel** philosophy.
+*   **[tree-sitter-macro](https://github.com/berecik/tree-sitter-macro):** Rust macros for tree-sitter integration, showcasing deep language parsing and manipulation techniques.
 
-*Role: Full Stack Architect* | (https://cityexplorer.app)
-
-A production mobile application that acts as an intelligent personal tour guide. The system solves the challenge of delivering real-time, location-aware content to users moving through physical space by combining high-performance geospatial querying with Generative AI.
-
-**System Architecture:**
-
-* **Rust Actix Backend:** The core is built on **Rust** using the **Actix** framework. It leverages the **Actor Model** to handle thousands of concurrent WebSocket connections, allowing the server to process location updates from moving users with sub-millisecond latency and zero Garbage Collection pauses.  
-* **Geospatial Intelligence:** Utilises **PostGIS** for advanced spatial indexing (R-Tree), enabling efficient "K-Nearest Neighbours" (KNN) queries to identify points of interest within a dynamic walkable radius.  
-* **Generative AI Pipeline:** Orchestrates an asynchronous job queue that aggregates POI data and feeds it into Large Language Models (LLMs) to generate unique, context-aware audio stories.  
-* **UX Engineering:** Implements optimistic UI patterns and "loading states" (the 'writing girl' metaphor) to mask the inherent latency of AI generation, ensuring a fluid user experience.
-
-### ---
-
-**\[actix-generic-crud\] Rust Abstract Controller**
-
-*Role: Creator* | [**GitHub**](https://github.com/berecik/actix-generic-crud)
-
-A library demonstrating advanced **Rust** capabilities, specifically focusing on **Traits** and **Generics** to solve the "boilerplate problem" in statically typed web frameworks.
-
-* **Data-Agnostic Design:** Provides a generic CrudController that can interface with any storage backend (SQL, NoSQL, In-Memory) that implements the defined Repository traits.  
-* **Type System Mastery:** Demonstrates how to leverage Rust's zero-cost abstractions to create reusable web components that do not sacrifice runtime performance.
-
-### ---
-
-**\[fastapi-k8s-microservice-template\]**
-
-*Role: Architect* | [**GitHub**](https://github.com/berecik/fastapi-k8s-microservice-template)
-
-A reference architecture for deploying Python microservices at scale, serving as the public proof-of-concept for the dev\_skel philosophy.
-
-* **Features:** Full **Kubernetes** integration, asynchronous database drivers (Motor/AsyncPG), structured JSON logging for ELK stack integration, and OpenTelemetry instrumentation.
-
-## ---
+---
 
 **📬 Contact**
 
-* **Email:** beret@hipisi.org.pl  
-* **GitHub:** [github.com/berecik](https://github.com/berecik)
+*   **Email:** beret@hipisi.org.pl  
+*   **GitHub:** [github.com/berecik](https://github.com/berecik)
