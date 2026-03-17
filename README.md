@@ -34,14 +34,14 @@ A paradigm-shifting **Fail-Operational Distributed Lift System (DLS)** designed 
 *   **Decentralized Communication:** Leverages **Zenoh** and **ROS 2 (Humble/Jazzy)** for low-latency, resilient data distribution between swarm nodes.
 *   **Fail-Operational Design:** Implements redundant lift algorithms where the swarm maintains stability and payload altitude even upon individual drone failure.
 
-### **[claude_on_django] LLM Orchestration Framework**
-*Role: Architect* | [**Internal / Early Access**]
+### **[claude_on_django] Autonomous Development Framework**
+*Role: Architect* | [**GitHub**](https://github.com/berecik/claude_on_django)
 
-A specialized integration layer for **Anthropic's Claude** within the **Django** ecosystem. This project focuses on moving beyond simple chatbot interfaces to deep, context-aware LLM orchestration inside mature enterprise backends.
+An autonomous development framework for the **Django-Bolt** ecosystem. It coordinates teams of AI agents to handle full-stack implementation—from models and APIs to tests and deployment—while maintaining extreme performance through Rust integration.
 
-*   **Semantic Model Integration:** Maps Django ORM models to Claude's context window, enabling the LLM to reason over application data while respecting database constraints and permissions.
-*   **Asynchronous Processing:** Utilizes **Celery** to handle long-running LLM generation tasks without blocking the main web worker, maintaining application responsiveness.
-*   **Structured Output Parsing:** Enforces strict JSON schemas on Claude's responses to ensure seamless integration with downstream Python logic and Flet-based frontends.
+*   **Django-Bolt Integration:** Leverages **Rust-powered API performance** (60k+ RPS via Actix Web + PyO3) within the Django ecosystem.
+*   **Multi-Agent Orchestration:** Deploys specialized AI agents to reason over application data and execute complex, multi-layered development tasks.
+*   **Full-Cycle Automation:** Automates the generation of Django ORM models, structured JSON schemas, and Flet-based reactive frontends.
 
 ### **[flutterkvm] Flutter PiKVM Client**
 *Role: Creator* | [**GitHub**](https://github.com/berecik/flutterkvm)
