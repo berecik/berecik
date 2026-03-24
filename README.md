@@ -34,6 +34,15 @@ A paradigm-shifting **Fail-Operational Distributed Lift System (DLS)** designed 
 *   **Decentralized Communication:** Leverages **Zenoh** and **ROS 2 (Humble/Jazzy)** for low-latency, resilient data distribution between swarm nodes.
 *   **Fail-Operational Design:** Implements redundant lift algorithms where the swarm maintains stability and payload altitude even upon individual drone failure.
 
+### **[Swarm Digital Twin] Drone Swarm Simulation & Testing Framework**
+*Role: Creator & Lead Architect* | [**GitHub**](https://github.com/berecik/swarm_digital_twin)
+
+A comprehensive digital twin framework for developing and testing autonomous drone swarm behavior without physical hardware. It provides a complete simulation environment for the [DAS-SAR] project, enabling rapid iteration on safety-critical flight algorithms and AI perception.
+
+*   **Multimodal Simulation:** Features standalone **Python-based rigid-body physics** for rapid testing and full **Docker-orchestrated** environments for multi-drone swarm validation.
+*   **Safety-Critical Logic:** Implements real-time swarm coordination and distributed lift controllers in **Rust** via **Zenoh** and **ROS 2**.
+*   **End-to-End Validation:** Integrates **AI perception pipelines** (YOLOv8/11) with mocked sensors and 3D localization within a synchronized simulation loop.
+
 ### **[claude_on_django] Autonomous Development Framework**
 *Role: Architect* | [**GitHub**](https://github.com/berecik/claude_on_django)
 
