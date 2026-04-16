@@ -25,14 +25,15 @@ My work focuses on eliminating architectural entropy through standardization (**
 
 **🚀 Engineering Portfolio**
 
-### **[DAS-SAR] Distributed Aerial Search and Rescue Swarm**
-*Role: Lead Developer* | [**GitHub**](https://github.com/berecik/virtual_drone_crowd)
+### **[dev_skel] AI-Augmented Polyglot Scaffolding Engine**
+*Role: Architect & Maintainer* | [**GitHub**](https://github.com/berecik/dev_skel)
 
-A paradigm-shifting **Fail-Operational Distributed Lift System (DLS)** designed for heavy-lift aerial evacuation. Instead of a single massive aircraft, it utilizes a swarm of autonomous drones tethered to a common payload, enabling extraction from environments inaccessible to conventional helicopters.
+**dev_skel** generates whole multi-service projects where **every generated service ships with its own in-service code agent**. A single Ollama-driven dialog produces a working full-stack project across **12 skeletons** (Rust Actix/Axum, Django-Bolt, FastAPI, Spring, Go, Flask, Django, Node, React/Vite, Flutter); the resulting services then continue to evolve under AI control via per-service `./ai` scripts. The project unifies **scaffolding**, **refactoring**, and **template ↔ service drift management** under one tool.
 
-*   **Hybrid Stack:** Orchestrates real-time swarm logic using **Rust** for safety-critical controllers and **Python** for high-level mission planning.
-*   **Decentralized Communication:** Leverages **Zenoh** and **ROS 2 (Humble/Jazzy)** for low-latency, resilient data distribution between swarm nodes.
-*   **Fail-Operational Design:** Implements redundant lift algorithms where the swarm maintains stability and payload altitude even upon individual drone failure.
+*   **Three AI Surfaces:** `skel-gen-ai` orchestrates a **5-phase Ollama pipeline** (per-target backend + frontend overlays → cross-service integration → bounded test-and-fix loop → docs) backed by a local **FAISS RAG index** (tree-sitter chunker + sentence-transformers + LangChain). Each generated service ships `./ai` — a refactor agent with **git-stash safety**, path-traversal protection, and a per-service apply lock. `./backport` and `./ai upgrade` close the loop with **semver-aware CHANGELOG automation** (service edits → template, template changes → service).
+*   **Polyglot by Design:** Composable skeletons covering **high-performance backends** (Rust Actix/Axum, Django-Bolt at ~60k RPS via PyO3), **application backends** (FastAPI, Spring Boot 3, Flask, Django, Go), and **frontends** (React/Vite, Flutter Material 3). Any combination lands in one wrapper that shares its database, JWT secret, and service-URL map — a token issued by one service is accepted by every other.
+*   **Cross-Service Memory:** Wrapper-level `./ai` **fans out across services by default**; every applied refactor appends a JSONL entry to a project-shared memory log so the next AI run (in any service) prepends the recent history into its prompt — keeping cross-stack contracts aligned without re-explaining.
+*   **Production Plumbing:** Multi-stage Docker builds, opt-in Helm charts, **Postgres / SQLite swap via a single `.env` edit**, and a wrapper-shared `/api/items` + `/api/auth/login` + `/api/state` contract that both React and Flutter frontends call out of the box. End-to-end cross-stack HTTP integration tests cover **9 backend × frontend pairs**.
 
 ### **[Swarm Digital Twin] Drone Swarm Simulation & Testing Framework**
 *Role: Creator & Lead Architect* | [**GitHub**](https://github.com/berecik/swarm_digital_twin)
@@ -42,6 +43,15 @@ A comprehensive digital twin framework for developing and testing autonomous dro
 *   **Multimodal Simulation:** Features standalone **Python-based rigid-body physics** for rapid testing and full **Docker-orchestrated** environments for multi-drone swarm validation.
 *   **Safety-Critical Logic:** Implements real-time swarm coordination and distributed lift controllers in **Rust** via **Zenoh** and **ROS 2**.
 *   **End-to-End Validation:** Integrates **AI perception pipelines** (YOLOv8/11) with mocked sensors and 3D localization within a synchronized simulation loop.
+
+### **[DAS-SAR] Distributed Aerial Search and Rescue Swarm**
+*Role: Lead Developer* | [**GitHub**](https://github.com/berecik/virtual_drone_crowd)
+
+A paradigm-shifting **Fail-Operational Distributed Lift System (DLS)** designed for heavy-lift aerial evacuation. Instead of a single massive aircraft, it utilizes a swarm of autonomous drones tethered to a common payload, enabling extraction from environments inaccessible to conventional helicopters.
+
+*   **Hybrid Stack:** Orchestrates real-time swarm logic using **Rust** for safety-critical controllers and **Python** for high-level mission planning.
+*   **Decentralized Communication:** Leverages **Zenoh** and **ROS 2 (Humble/Jazzy)** for low-latency, resilient data distribution between swarm nodes.
+*   **Fail-Operational Design:** Implements redundant lift algorithms where the swarm maintains stability and payload altitude even upon individual drone failure.
 
 ### **[claude_on_django] Autonomous Development Framework**
 *Role: Architect* | [**GitHub**](https://github.com/berecik/claude_on_django)
@@ -68,16 +78,6 @@ A production mobile application that acts as an intelligent personal tour guide.
 *   **Rust Actix Backend:** Leverages the **Actor Model** to handle thousands of concurrent WebSocket connections with sub-millisecond latency.
 *   **Geospatial Intelligence:** Utilizes **PostGIS** for advanced spatial indexing (R-Tree), enabling efficient "K-Nearest Neighbors" (KNN) queries.
 *   **Generative AI Pipeline:** Orchestrates an asynchronous job queue feeding POI data into LLMs to generate unique, context-aware audio stories.
-
-### **[dev_skel] AI-Augmented Polyglot Scaffolding Engine**
-*Role: Architect & Maintainer* | [**GitHub**](https://github.com/berecik/dev_skel)
-
-**dev_skel** generates whole multi-service projects where **every generated service ships with its own in-service code agent**. A single Ollama-driven dialog produces a working full-stack project across **12 skeletons** (Rust Actix/Axum, Django-Bolt, FastAPI, Spring, Go, Flask, Django, Node, React/Vite, Flutter); the resulting services then continue to evolve under AI control via per-service `./ai` scripts. The project unifies **scaffolding**, **refactoring**, and **template ↔ service drift management** under one tool.
-
-*   **Three AI Surfaces:** `skel-gen-ai` orchestrates a **5-phase Ollama pipeline** (per-target backend + frontend overlays → cross-service integration → bounded test-and-fix loop → docs) backed by a local **FAISS RAG index** (tree-sitter chunker + sentence-transformers + LangChain). Each generated service ships `./ai` — a refactor agent with **git-stash safety**, path-traversal protection, and a per-service apply lock. `./backport` and `./ai upgrade` close the loop with **semver-aware CHANGELOG automation** (service edits → template, template changes → service).
-*   **Polyglot by Design:** Composable skeletons covering **high-performance backends** (Rust Actix/Axum, Django-Bolt at ~60k RPS via PyO3), **application backends** (FastAPI, Spring Boot 3, Flask, Django, Go), and **frontends** (React/Vite, Flutter Material 3). Any combination lands in one wrapper that shares its database, JWT secret, and service-URL map — a token issued by one service is accepted by every other.
-*   **Cross-Service Memory:** Wrapper-level `./ai` **fans out across services by default**; every applied refactor appends a JSONL entry to a project-shared memory log so the next AI run (in any service) prepends the recent history into its prompt — keeping cross-stack contracts aligned without re-explaining.
-*   **Production Plumbing:** Multi-stage Docker builds, opt-in Helm charts, **Postgres / SQLite swap via a single `.env` edit**, and a wrapper-shared `/api/items` + `/api/auth/login` + `/api/state` contract that both React and Flutter frontends call out of the box. End-to-end cross-stack HTTP integration tests cover **9 backend × frontend pairs**.
 
 ### **[flet-django] The Django-Flutter Bridge**
 *Role: Creator & Lead Maintainer* | [**PyPI**](https://pypi.org/project/flet-django/) | [**GitHub**](https://github.com/Marysia-Software-Limited/flet-django)
