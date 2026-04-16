@@ -69,14 +69,15 @@ A production mobile application that acts as an intelligent personal tour guide.
 *   **Geospatial Intelligence:** Utilizes **PostGIS** for advanced spatial indexing (R-Tree), enabling efficient "K-Nearest Neighbors" (KNN) queries.
 *   **Generative AI Pipeline:** Orchestrates an asynchronous job queue feeding POI data into LLMs to generate unique, context-aware audio stories.
 
-### **[dev_skel] Microservice Scaffolding Engine**
+### **[dev_skel] AI-Augmented Polyglot Scaffolding Engine**
 *Role: Architect & Maintainer* | [**GitHub**](https://github.com/berecik/dev_skel)
 
-**dev_skel** is a comprehensive scaffolding and orchestration engine designed to standardize the lifecycle of modern microservices. Born from the necessity to maintain architectural consistency across polyglot environments (Rust/Python), it serves as the foundational "DNA" for high-performance applications.
+**dev_skel** generates whole multi-service projects where **every generated service ships with its own in-service code agent**. A single Ollama-driven dialog produces a working full-stack project across **12 skeletons** (Rust Actix/Axum, Django-Bolt, FastAPI, Spring, Go, Flask, Django, Node, React/Vite, Flutter); the resulting services then continue to evolve under AI control via per-service `./ai` scripts. The project unifies **scaffolding**, **refactoring**, and **template ↔ service drift management** under one tool.
 
-*   **Polyglot Bootstrapping:** Instantly scaffolds production-ready directory structures for **FastAPI** (Python) and **Actix** (Rust) services, enforcing **Domain-Driven Design (DDD)** principles.
-*   **Container Optimization:** Implements advanced **Docker** patterns, including multi-stage builds and distroless images for Rust (<50MB artifacts).
-*   **Kubernetes-Native Config:** Automatically generates production-grade **Helm** charts, including pre-configured Readiness/Liveness probes, HPA rules, and Ingress definitions.
+*   **Three AI Surfaces:** `skel-gen-ai` orchestrates a **5-phase Ollama pipeline** (per-target backend + frontend overlays → cross-service integration → bounded test-and-fix loop → docs) backed by a local **FAISS RAG index** (tree-sitter chunker + sentence-transformers + LangChain). Each generated service ships `./ai` — a refactor agent with **git-stash safety**, path-traversal protection, and a per-service apply lock. `./backport` and `./ai upgrade` close the loop with **semver-aware CHANGELOG automation** (service edits → template, template changes → service).
+*   **Polyglot by Design:** Composable skeletons covering **high-performance backends** (Rust Actix/Axum, Django-Bolt at ~60k RPS via PyO3), **application backends** (FastAPI, Spring Boot 3, Flask, Django, Go), and **frontends** (React/Vite, Flutter Material 3). Any combination lands in one wrapper that shares its database, JWT secret, and service-URL map — a token issued by one service is accepted by every other.
+*   **Cross-Service Memory:** Wrapper-level `./ai` **fans out across services by default**; every applied refactor appends a JSONL entry to a project-shared memory log so the next AI run (in any service) prepends the recent history into its prompt — keeping cross-stack contracts aligned without re-explaining.
+*   **Production Plumbing:** Multi-stage Docker builds, opt-in Helm charts, **Postgres / SQLite swap via a single `.env` edit**, and a wrapper-shared `/api/items` + `/api/auth/login` + `/api/state` contract that both React and Flutter frontends call out of the box. End-to-end cross-stack HTTP integration tests cover **9 backend × frontend pairs**.
 
 ### **[flet-django] The Django-Flutter Bridge**
 *Role: Creator & Lead Maintainer* | [**PyPI**](https://pypi.org/project/flet-django/) | [**GitHub**](https://github.com/Marysia-Software-Limited/flet-django)
